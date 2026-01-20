@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Resources\Users\UserResource;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -18,6 +19,8 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use CWSPS154\UsersRolesPermissions\UsersRolesPermissionsPlugin;
+
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -54,6 +57,12 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->databaseNotifications() //need to see the export files for the permission
+            ->databaseTransactions() //optional
+            ->plugins([
+                UsersRolesPermissionsPlugin::make(),
             ]);
+        // ->plugins([UsersRolesPermissionsPlugin::make()]); //required to enable this extension;
     }
 }

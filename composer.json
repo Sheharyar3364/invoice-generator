@@ -7,6 +7,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "cwsps154/users-roles-permissions": "^1.0",
         "filament/filament": "^4.0",
         "inertiajs/inertia-laravel": "^2.0",
         "laravel/fortify": "^1.30",
@@ -15,6 +16,7 @@
         "laravel/wayfinder": "^0.1.9"
     },
     "require-dev": {
+        "cweagans/composer-patches": "^2.0",
         "fakerphp/faker": "^1.23",
         "laravel/boost": "^1.8",
         "laravel/pail": "^1.2.2",
@@ -96,6 +98,7 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
+            "cweagans/composer-patches": true,
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
         }
